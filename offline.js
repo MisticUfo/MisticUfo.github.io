@@ -1,10 +1,12 @@
 ﻿{
-	"version": 1511821058,
+	"version": 1512060720,
 	"fileList": [
 		"data.js",
 		"c2runtime.js",
 		"jquery-2.1.1.min.js",
 		"images/fon-sheet0.png",
+		"images/fon-sheet1.png",
+		"images/fon-sheet2.png",
 		"images/yellowblocks.png",
 		"images/player-sheet0.png",
 		"images/скин-sheet0.png",

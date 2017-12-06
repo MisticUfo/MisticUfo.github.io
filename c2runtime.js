@@ -20232,10 +20232,10 @@ cr.behaviors.solid = function(runtime)
 }());
 cr.getObjectRefTable = function () { return [
 	cr.plugins_.Keyboard,
-	cr.plugins_.TiledBg,
-	cr.plugins_.Touch,
 	cr.plugins_.Text,
+	cr.plugins_.TiledBg,
 	cr.plugins_.Sprite,
+	cr.plugins_.Touch,
 	cr.behaviors.solid,
 	cr.behaviors.Platform,
 	cr.behaviors.scrollto,
@@ -20302,6 +20302,13 @@ cr.getObjectRefTable = function () { return [
 	cr.plugins_.Text.prototype.acts.MoveToTop,
 	cr.plugins_.Text.prototype.acts.SetPosToObject,
 	cr.system_object.prototype.acts.GoToLayoutByName,
+	cr.system_object.prototype.acts.SaveState,
+	cr.system_object.prototype.acts.LoadState,
 	cr.system_object.prototype.exps.loadingprogress,
-	cr.system_object.prototype.cnds.OnLoadFinished
+	cr.system_object.prototype.cnds.OnLoadFinished,
+	cr.system_object.prototype.acts.SetCanvasSize,
+	cr.system_object.prototype.cnds.OnLayoutEnd,
+	cr.system_object.prototype.cnds.Every,
+	cr.plugins_.Sprite.prototype.acts.SetPos,
+	cr.system_object.prototype.exps.random
 ];};
