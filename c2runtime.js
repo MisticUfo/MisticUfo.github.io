@@ -15113,6 +15113,22 @@ cr.system_object.prototype.loadFromJSON = function (o)
 	};
 })();
 cr.shaders = {};
+cr.shaders["grayscale"] = {src: ["varying mediump vec2 vTex;",
+"uniform lowp sampler2D samplerFront;",
+"uniform lowp float intensity;",
+"void main(void)",
+"{",
+"lowp vec4 front = texture2D(samplerFront, vTex);",
+"lowp float gray = front.r * 0.299 + front.g * 0.587 + front.b * 0.114;",
+"gl_FragColor = mix(front, vec4(gray, gray, gray, front.a), intensity);",
+"}"
+].join("\n"),
+	extendBoxHorizontal: 0,
+	extendBoxVertical: 0,
+	crossSampling: false,
+	preservesOpaqueness: true,
+	animated: false,
+	parameters: [["intensity", 0, 1]] }
 ;
 ;
 cr.plugins_.Keyboard = function(runtime)
@@ -20233,9 +20249,9 @@ cr.behaviors.solid = function(runtime)
 cr.getObjectRefTable = function () { return [
 	cr.plugins_.Keyboard,
 	cr.plugins_.Text,
-	cr.plugins_.TiledBg,
-	cr.plugins_.Sprite,
 	cr.plugins_.Touch,
+	cr.plugins_.Sprite,
+	cr.plugins_.TiledBg,
 	cr.behaviors.solid,
 	cr.behaviors.Platform,
 	cr.behaviors.scrollto,
@@ -20286,6 +20302,7 @@ cr.getObjectRefTable = function () { return [
 	cr.plugins_.Sprite.prototype.acts.ZMoveToObject,
 	cr.plugins_.Sprite.prototype.acts.Destroy,
 	cr.system_object.prototype.cnds.CompareVar,
+	cr.plugins_.Sprite.prototype.acts.MoveToTop,
 	cr.plugins_.Sprite.prototype.acts.SetWidth,
 	cr.plugins_.Sprite.prototype.cnds.CompareWidth,
 	cr.system_object.prototype.acts.AddVar,
@@ -20310,5 +20327,11 @@ cr.getObjectRefTable = function () { return [
 	cr.system_object.prototype.cnds.OnLayoutEnd,
 	cr.system_object.prototype.cnds.Every,
 	cr.plugins_.Sprite.prototype.acts.SetPos,
-	cr.system_object.prototype.exps.random
+	cr.system_object.prototype.exps.random,
+	cr.plugins_.Sprite.prototype.acts.SetEffectEnabled,
+	cr.plugins_.Text.prototype.acts.SetVisible,
+	cr.plugins_.Sprite.prototype.exps.ImagePointX,
+	cr.plugins_.Sprite.prototype.exps.ImagePointY,
+	cr.system_object.prototype.acts.SubVar,
+	cr.plugins_.Sprite.prototype.exps.AnimationFrame
 ];};
