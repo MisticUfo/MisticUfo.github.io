@@ -8880,7 +8880,8 @@ html, body {
 }
 
 .page {
-  background: url("../img//general/main-bg.jpg") no-repeat 50%;
+  background: url("../img//general/main-bg.jpg") no-repeat 50% 0px;
+  background-color: #7b8996;
   background-attachment: fixed;
   background-size: cover;
   padding-top: 30px;
@@ -8901,7 +8902,7 @@ html, body {
 }
 
 .main-page .projects {
-  margin-bottom: 200px;
+  margin-bottom: 250px;
 }
 
 .main-page .projects .project_container {
@@ -8986,11 +8987,9 @@ html, body {
   .main-page .projects .project_title {
     font-size: 18px;
   }
-}
-
-@media screen and (max-width: 480px) {
   .page {
     padding-top: 0;
+    background-size: 285%;
   }
   .page_wrapper {
     width: 100%;
